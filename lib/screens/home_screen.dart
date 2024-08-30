@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // TODO add text
-         const SubtitleTextWidget(label: "Hello World"),
+          SubtitleTextWidget(label: "Hello World"),
          TitlesTextWidget(
           label: "Hello This is A Title" *10,
           ),

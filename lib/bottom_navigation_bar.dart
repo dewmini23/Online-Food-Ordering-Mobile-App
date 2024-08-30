@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:online_food_ordering_app/consts/app_colors.dart';
 import 'package:online_food_ordering_app/screens/cart_screen.dart';
 import 'package:online_food_ordering_app/screens/home_screen.dart';
 import 'package:online_food_ordering_app/screens/profile_screen.dart';
@@ -40,7 +41,7 @@ class _RootScreenState extends State<RootScreen> {
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: currentScreen, // to show which icon is selected and where / which page we are
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor, // changes the background color of navigation bar
+        backgroundColor: AppColors.darkScaffoldColor, // changes the background color of navigation bar
         elevation: 10,
         height: kBottomNavigationBarHeight, // change the height of bar
         onDestinationSelected: (index) {
