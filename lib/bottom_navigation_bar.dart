@@ -16,7 +16,7 @@ class RootScreen extends StatefulWidget {
 class _RootScreenState extends State<RootScreen> {
   late List<Widget>
       screens; // late is used here to say this variable will be initialized later in code
-  int currentScreen = 0;
+  int currentScreen = 2;
   late PageController? controller;
 
   @override
@@ -35,13 +35,16 @@ class _RootScreenState extends State<RootScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        physics: NeverScrollableScrollPhysics(), // to prevent scrolling between screeens 
+        physics:
+            NeverScrollableScrollPhysics(), // to prevent scrolling between screeens
         controller: controller,
         children: screens,
       ),
       bottomNavigationBar: NavigationBar(
-        selectedIndex: currentScreen, // to show which icon is selected and where / which page we are
-        backgroundColor: AppColors.darkScaffoldColor, // changes the background color of navigation bar
+        selectedIndex:
+            currentScreen, // to show which icon is selected and where / which page we are
+        backgroundColor: AppColors
+            .darkScaffoldColor, // changes the background color of navigation bar
         elevation: 10,
         height: kBottomNavigationBarHeight, // change the height of bar
         onDestinationSelected: (index) {
@@ -53,20 +56,24 @@ class _RootScreenState extends State<RootScreen> {
         destinations: const [
           NavigationDestination(
             selectedIcon: Icon(IconlyBold.home),
-            icon: const Icon(IconlyLight.home) , label: "Home",
-            ),
-            NavigationDestination(
+            icon: Icon(IconlyLight.home),
+            label: "Home",
+          ),
+          NavigationDestination(
             selectedIcon: Icon(IconlyBold.search),
-            icon: const Icon(IconlyLight.search) , label: "Search",
-            ),
-            NavigationDestination(
+            icon: Icon(IconlyLight.search),
+            label: "Search",
+          ),
+          NavigationDestination(
             selectedIcon: Icon(IconlyBold.bag2),
-            icon: const Icon(IconlyLight.bag2) , label: "Cart",
-            ),
-            NavigationDestination(
+            icon: Icon(IconlyLight.bag2),
+            label: "Cart",
+          ),
+          NavigationDestination(
             selectedIcon: Icon(IconlyBold.profile),
-            icon: const Icon(IconlyLight.profile) , label: "Profile",
-            )
+            icon: Icon(IconlyLight.profile),
+            label: "Profile",
+          )
         ],
       ),
     );

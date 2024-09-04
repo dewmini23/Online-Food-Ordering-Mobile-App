@@ -10,7 +10,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context); // defined a provider
+    final themeProvider =
+        Provider.of<ThemeProvider>(context); // defined a provider
     return Scaffold(
       // backgroundColor: AppColors.lightScaffoldColor,
       body: Center(
@@ -18,9 +19,9 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // TODO add text
-          SubtitleTextWidget(label: "Hello World"),
-         TitlesTextWidget(
-          label: "Hello This is A Title" *10,
+          const SubtitleTextWidget(label: "Hello World"),
+          TitlesTextWidget(
+            label: "Hello This is A Title" * 10,
           ),
           ElevatedButton(onPressed: () {}, child: Text("Hello world")),
           SwitchListTile(

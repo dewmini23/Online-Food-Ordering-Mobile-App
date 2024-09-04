@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:online_food_ordering_app/providers/theme_provider.dart';
 import 'package:online_food_ordering_app/services/assets_manager.dart';
+import 'package:online_food_ordering_app/widgets/app_name_text.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,9 @@ class ProfileScreen extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Profile Screen"),
+        title: const AppNameTextWidget(
+          fontSize: 20,
+        ),
         leading: Image.asset(Assetsmanager.logo),
       ),
       body: Column(
@@ -24,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
             visible: false,
             child: Padding(
               padding: const EdgeInsets.all(18.0),
-              child: TitlesTextWidget(
+              child: const TitlesTextWidget(
                 label: "Please login in to shop with us",
               ),
             ),
