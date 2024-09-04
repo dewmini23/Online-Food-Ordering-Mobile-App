@@ -7,5 +7,6 @@ class Assetsmanager {
   static const String wishlist = "${imagePath}wishlist.png";
   static const String viewed = "${imagePath}recent.png";
   static const String address = "${imagePath}address.png";
-   static const String theme = "${imagePath}theme.png";
+  static const String theme = "${imagePath}theme.png";
+  static const String cart1 = "${imagePath}basket.png";
 }
