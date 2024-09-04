@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
           TitlesTextWidget(
             label: "Hello This is A Title" * 10,
           ),
-          ElevatedButton(onPressed: () {}, child: Text("Hello world")),
+          ElevatedButton(onPressed: () {}, child: const Text("Hello world")),
           SwitchListTile(
               title: Text(
                   themeProvider.getIsDarkTheme ? "Dark Mode" : "Light Mode"),

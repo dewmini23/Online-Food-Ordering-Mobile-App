@@ -6,22 +6,23 @@ class Styles {
       {required bool isDarkTheme, required BuildContext context}) {
     return ThemeData(
       scaffoldBackgroundColor: isDarkTheme
-      ? const Color.fromARGB(255, 3, 1, 9)
-      :AppColors.lightScaffoldColor,
+          ? const Color.fromARGB(255, 9, 3, 9)
+          : AppColors.lightScaffoldColor,
       cardColor: isDarkTheme
-      ? const Color.fromARGB(255, 2, 1, 5)
-      : AppColors.lightCardColor,
+          ? const Color.fromARGB(255, 2, 1, 5)
+          : AppColors.lightCardColor,
       brightness: isDarkTheme ? Brightness.dark : Brightness.light,
       appBarTheme: AppBarTheme(
+        iconTheme:
+            IconThemeData(color: isDarkTheme ? Colors.white : Colors.black),
         backgroundColor: isDarkTheme
-        ? AppColors.darkScaffoldColor
-        : AppColors.lightScaffoldColor,
+            ? AppColors.darkScaffoldColor
+            : AppColors.lightScaffoldColor,
         elevation: 0,
-        titleTextStyle: 
-        TextStyle(color: isDarkTheme ? Colors.white : Colors.black,
+        titleTextStyle: TextStyle(
+          color: isDarkTheme ? Colors.white : Colors.black,
         ),
       ),
-      );
-  
+    );
   }
 }

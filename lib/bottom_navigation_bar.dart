@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:online_food_ordering_app/consts/app_colors.dart';
-import 'package:online_food_ordering_app/screens/cart_screen.dart';
+import 'package:online_food_ordering_app/screens/cart/cart_screen.dart';
 import 'package:online_food_ordering_app/screens/home_screen.dart';
 import 'package:online_food_ordering_app/screens/profile_screen.dart';
 import 'package:online_food_ordering_app/screens/search_screen.dart';
@@ -36,7 +36,7 @@ class _RootScreenState extends State<RootScreen> {
     return Scaffold(
       body: PageView(
         physics:
-            NeverScrollableScrollPhysics(), // to prevent scrolling between screeens
+            const NeverScrollableScrollPhysics(), // to prevent scrolling between screeens
         controller: controller,
         children: screens,
       ),
@@ -66,7 +66,7 @@ class _RootScreenState extends State<RootScreen> {
           ),
           NavigationDestination(
             selectedIcon: Icon(IconlyBold.bag2),
-            icon: Icon(IconlyLight.bag2),
+            icon: Badge(label: Text("5"), child: Icon(IconlyLight.bag2)),
             label: "Cart",
           ),
           NavigationDestination(
