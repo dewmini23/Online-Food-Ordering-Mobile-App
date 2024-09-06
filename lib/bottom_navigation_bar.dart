@@ -16,7 +16,7 @@ class RootScreen extends StatefulWidget {
 class _RootScreenState extends State<RootScreen> {
   late List<Widget>
       screens; // late is used here to say this variable will be initialized later in code
-  int currentScreen = 2;
+  int currentScreen = 0;
   late PageController? controller;
 
   @override
