@@ -1,9 +1,10 @@
-import 'dart:developer';
+// import 'dart:developer';
 
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:online_food_ordering_app/consts/app_constants.dart';
+import 'package:online_food_ordering_app/screens/inner_screen/product_details.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 
 class LatestArrivalProductWidget extends StatelessWidget {
@@ -15,8 +16,8 @@ class LatestArrivalProductWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
-        onTap: () {
-          log("to do add the navigate to the product details screen");
+        onTap: () async {
+          await Navigator.pushNamed(context, ProductDetailsScreen.routName);
         },
         child: SizedBox(
           width: size.width * 0.45,
@@ -68,7 +69,7 @@ class LatestArrivalProductWidget extends StatelessWidget {
                       ),
                     ),
                     const FittedBox(
-                      child: const SubtitleTextWidget(
+                      child: SubtitleTextWidget(
                         label: "1100/= ",
                         fontWeight: FontWeight.w600,
                         color: Colors.blue,

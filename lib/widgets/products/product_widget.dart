@@ -1,9 +1,10 @@
-import 'dart:developer';
+// import 'dart:developer';
 
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:online_food_ordering_app/consts/app_constants.dart';
+import 'package:online_food_ordering_app/screens/inner_screen/product_details.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
 
@@ -21,8 +22,8 @@ class _ProductWidgetState extends State<ProductWidget> {
     return Padding(
       padding: const EdgeInsets.all(0.0),
       child: GestureDetector(
-        onTap: () {
-          log("ToDo add the navigate to the product details screen");
+        onTap: () async {
+          await Navigator.pushNamed(context, ProductDetailsScreen.routName);
         },
         child: Column(
           children: [
@@ -42,7 +43,7 @@ class _ProductWidgetState extends State<ProductWidget> {
               child: Row(
                 // to title and heart icon
                 children: [
-                  Flexible(
+                  const Flexible(
                     flex: 8,
                     child: TitlesTextWidget(
                       label: "Hawaiian Chicken Pizza",

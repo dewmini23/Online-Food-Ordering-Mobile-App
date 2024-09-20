@@ -79,7 +79,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   log("value of the controler text : ${searchTextController.text}");
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15.0,
               ),
               Expanded(
