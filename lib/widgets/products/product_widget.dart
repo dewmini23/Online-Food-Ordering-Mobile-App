@@ -2,9 +2,10 @@
 
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
+// import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:online_food_ordering_app/consts/app_constants.dart';
 import 'package:online_food_ordering_app/screens/inner_screen/product_details.dart';
+import 'package:online_food_ordering_app/widgets/products/heart_btn.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
 
@@ -38,12 +39,12 @@ class _ProductWidgetState extends State<ProductWidget> {
             const SizedBox(
               height: 12.0,
             ),
-            Padding(
-              padding: const EdgeInsets.all(2.0),
+            const Padding(
+              padding: EdgeInsets.all(2.0),
               child: Row(
                 // to title and heart icon
                 children: [
-                  const Flexible(
+                  Flexible(
                     flex: 8,
                     child: TitlesTextWidget(
                       label: "Hawaiian Chicken Pizza",
@@ -53,13 +54,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                   ),
                   Flexible(
                     flex: 2,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        IconlyLight.heart,
-                        size: 24,
-                      ),
-                    ),
+                    child: HeartButtonWidget(),
                   ),
                 ],
               ),

@@ -1,9 +1,10 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
+// import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:online_food_ordering_app/consts/app_constants.dart';
 // import 'package:online_food_ordering_app/services/assets_manager.dart';
 import 'package:online_food_ordering_app/widgets/app_name_text.dart';
+import 'package:online_food_ordering_app/widgets/products/heart_btn.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
 
@@ -79,19 +80,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.blue.shade400,
-                            shape: BoxShape.circle,
-                          ),
-                          child: IconButton(
-                            style: IconButton.styleFrom(elevation: 10),
-                            onPressed: () {},
-                            icon: const Icon(
-                              IconlyLight.heart,
-                              size: 24,
-                            ),
-                          ),
+                        HeartButtonWidget(
+                          bgkColor: Colors.blue.shade400,
                         ),
                         const SizedBox(
                           width: 20,

@@ -2,9 +2,10 @@
 
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
+// import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:online_food_ordering_app/consts/app_constants.dart';
 import 'package:online_food_ordering_app/screens/inner_screen/product_details.dart';
+import 'package:online_food_ordering_app/widgets/products/heart_btn.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 
 class LatestArrivalProductWidget extends StatelessWidget {
@@ -51,13 +52,7 @@ class LatestArrivalProductWidget extends StatelessWidget {
                     FittedBox(
                       child: Row(
                         children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              IconlyLight.heart,
-                              size: 20,
-                            ),
-                          ),
+                          const HeartButtonWidget(),
                           IconButton(
                             onPressed: () {},
                             icon: const Icon(
