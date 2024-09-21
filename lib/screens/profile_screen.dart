@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:online_food_ordering_app/providers/theme_provider.dart';
+import 'package:online_food_ordering_app/screens/inner_screen/viewed_recently.dart';
+import 'package:online_food_ordering_app/screens/inner_screen/wishlist.dart';
 import 'package:online_food_ordering_app/services/assets_manager.dart';
 import 'package:online_food_ordering_app/widgets/app_name_text.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
@@ -106,13 +108,18 @@ class ProfileScreen extends StatelessWidget {
                     // class we created below for ListTitles
                     text: "wishlist",
                     imagePath: Assetsmanager.wishlist,
-                    function: () {},
+                    function: () {
+                      Navigator.pushNamed(context, WishlistScreen.routName);
+                    },
                   ),
                   CustomListTitle(
                     // class we created below for ListTitles
                     text: "Viewed recently",
                     imagePath: Assetsmanager.viewed,
-                    function: () {},
+                    function: () {
+                      Navigator.pushNamed(
+                          context, ViewedRecentlyScreen.routName);
+                    },
                   ),
                   CustomListTitle(
                     // class we created below for ListTitles

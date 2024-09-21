@@ -3,6 +3,8 @@ import 'package:online_food_ordering_app/bottom_navigation_bar.dart';
 import 'package:online_food_ordering_app/consts/theme_data.dart';
 import 'package:online_food_ordering_app/providers/theme_provider.dart';
 import 'package:online_food_ordering_app/screens/inner_screen/product_details.dart';
+import 'package:online_food_ordering_app/screens/inner_screen/viewed_recently.dart';
+import 'package:online_food_ordering_app/screens/inner_screen/wishlist.dart';
 // import 'package:online_food_ordering_app/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -31,6 +33,10 @@ class MyApp extends StatelessWidget {
           routes: {
             ProductDetailsScreen.routName: (context) =>
                 const ProductDetailsScreen(),
+            WishlistScreen.routName: (context) => const WishlistScreen(),
+            // ignore: equal_keys_in_map
+            ViewedRecentlyScreen.routName: (context) =>
+                const ViewedRecentlyScreen(),
           },
         );
       }),
