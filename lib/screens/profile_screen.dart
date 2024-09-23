@@ -4,6 +4,7 @@ import 'package:online_food_ordering_app/providers/theme_provider.dart';
 import 'package:online_food_ordering_app/screens/inner_screen/viewed_recently.dart';
 import 'package:online_food_ordering_app/screens/inner_screen/wishlist.dart';
 import 'package:online_food_ordering_app/services/assets_manager.dart';
+import 'package:online_food_ordering_app/services/my_app_functions.dart';
 import 'package:online_food_ordering_app/widgets/app_name_text.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
@@ -161,9 +162,16 @@ class ProfileScreen extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     )),
-                onPressed: () {},
                 icon: const Icon(Icons.login),
                 label: const Text("Login"),
+                onPressed: () async {
+                  await MyAppFunctions.showErrorOrWarningDialog(
+                      // calling MyAPPFunctions to handle warnings/errors instead of using a long code
+                      context: context,
+                      subtitle: "Sure You Want to Signout?",
+                      fct: () {},
+                      isError: false);
+                },
               ),
             ),
           ],

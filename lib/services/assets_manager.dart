@@ -27,4 +27,6 @@ class Assetsmanager {
   static const String snack = "${imagePath}snack.png";
   static const String recent = "${imagePath}basket.png";
   static const String wishBag = "${imagePath}bag_wish.png";
+  static const String warning = "${imagePath}warning.png";
+  static const String error = "${imagePath}error.png";
 }
