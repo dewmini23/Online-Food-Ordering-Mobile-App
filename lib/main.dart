@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:online_food_ordering_app/bottom_navigation_bar.dart';
 // import 'package:online_food_ordering_app/bottom_navigation_bar.dart';
 import 'package:online_food_ordering_app/consts/theme_data.dart';
+import 'package:online_food_ordering_app/providers/products_provider.dart';
 import 'package:online_food_ordering_app/providers/theme_provider.dart';
 import 'package:online_food_ordering_app/screens/authentication/forgot_password.dart';
 import 'package:online_food_ordering_app/screens/authentication/login.dart';
@@ -10,6 +11,7 @@ import 'package:online_food_ordering_app/screens/inner_screen/order/orders_scree
 import 'package:online_food_ordering_app/screens/inner_screen/product_details.dart';
 import 'package:online_food_ordering_app/screens/inner_screen/viewed_recently.dart';
 import 'package:online_food_ordering_app/screens/inner_screen/wishlist.dart';
+import 'package:online_food_ordering_app/screens/search_screen.dart';
 // import 'package:online_food_ordering_app/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +29,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) {
           // in here we have to add all providers
           return ThemeProvider();
-        })
+        }),
+        ChangeNotifierProvider(create: (_) {
+          // in here we have to add all providers
+          return ProductsProvider();
+        }),
       ],
       child: Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
         return MaterialApp(
@@ -49,6 +55,7 @@ class MyApp extends StatelessWidget {
             OrdersScreenFree.routeName: (context) => const OrdersScreenFree(),
             ForgotPasswordScreen.routeName: (context) =>
                 const ForgotPasswordScreen(),
+            SearchScreen.routeName: (context) => const SearchScreen(),
           },
         );
       }),
