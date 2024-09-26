@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:online_food_ordering_app/providers/theme_provider.dart';
+import 'package:online_food_ordering_app/screens/authentication/login.dart';
+import 'package:online_food_ordering_app/screens/inner_screen/order/orders_screen.dart';
 import 'package:online_food_ordering_app/screens/inner_screen/viewed_recently.dart';
 import 'package:online_food_ordering_app/screens/inner_screen/wishlist.dart';
 import 'package:online_food_ordering_app/services/assets_manager.dart';
-import 'package:online_food_ordering_app/services/my_app_functions.dart';
+// import 'package:online_food_ordering_app/services/my_app_functions.dart';
 import 'package:online_food_ordering_app/widgets/app_name_text.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
@@ -103,14 +105,19 @@ class ProfileScreen extends StatelessWidget {
                     // class we created below for ListTitles
                     text: "All Orders",
                     imagePath: Assetsmanager.orders,
-                    function: () {},
+                    function: () {
+                      Navigator.pushNamed(
+                        context,
+                        OrdersScreenFree.routeName,
+                      );
+                    },
                   ),
                   CustomListTitle(
                     // class we created below for ListTitles
                     text: "wishlist",
                     imagePath: Assetsmanager.wishlist,
                     function: () {
-                      Navigator.pushNamed(context, WishlistScreen.routName);
+                      Navigator.pushNamed(context, WishlistScreen.routeName);
                     },
                   ),
                   CustomListTitle(
@@ -119,7 +126,7 @@ class ProfileScreen extends StatelessWidget {
                     imagePath: Assetsmanager.viewed,
                     function: () {
                       Navigator.pushNamed(
-                          context, ViewedRecentlyScreen.routName);
+                          context, ViewedRecentlyScreen.routeName);
                     },
                   ),
                   CustomListTitle(
@@ -165,12 +172,12 @@ class ProfileScreen extends StatelessWidget {
                 icon: const Icon(Icons.login),
                 label: const Text("Login"),
                 onPressed: () async {
-                  await MyAppFunctions.showErrorOrWarningDialog(
-                      // calling MyAPPFunctions to handle warnings/errors instead of using a long code
-                      context: context,
-                      subtitle: "Sure You Want to Signout?",
-                      fct: () {},
-                      isError: false);
+                  Navigator.pushNamed(context, LoginScreen.routeName);
+                  // await MyAppFunctions.showErrorOrWarningDialog(
+                  //     context: context,
+                  //     subtitle: "Are you sure you want to signout",
+                  //     fct: () {},
+                  //     isError: false,);
                 },
               ),
             ),

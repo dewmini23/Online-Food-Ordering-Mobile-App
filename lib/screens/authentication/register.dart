@@ -9,7 +9,7 @@ import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
 
 class RegisterScreen extends StatefulWidget {
-  static const routName = "/RegisterScreen";
+  static const routeName = "/RegisterScreen";
   const RegisterScreen({super.key});
 
   @override

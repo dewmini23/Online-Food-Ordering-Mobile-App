@@ -9,7 +9,7 @@ import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  static const routName = "/ProductDetailsScreen";
+  static const routeName = "/ProductDetailsScreen";
   const ProductDetailsScreen({super.key});
 
   @override

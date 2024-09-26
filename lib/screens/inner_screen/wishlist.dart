@@ -8,7 +8,7 @@ import 'package:online_food_ordering_app/widgets/products/product_widget.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
 
 class WishlistScreen extends StatelessWidget {
-  static const routName = "/WishlistScreen";
+  static const routeName = "/WishlistScreen";
   const WishlistScreen({super.key});
   final bool isEmpty = true;
 

@@ -29,4 +29,5 @@ class Assetsmanager {
   static const String wishBag = "${imagePath}bag_wish.png";
   static const String warning = "${imagePath}warning.png";
   static const String error = "${imagePath}error.png";
+  static const String forgotPassword = "${imagePath}forgot_password.jpg";
 }

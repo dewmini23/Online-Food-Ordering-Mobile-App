@@ -8,7 +8,7 @@ import 'package:online_food_ordering_app/widgets/products/product_widget.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
 
 class ViewedRecentlyScreen extends StatelessWidget {
-  static const routName = "/ViewedRecentlyScreen";
+  static const routeName = "/ViewedRecentlyScreen";
   const ViewedRecentlyScreen({super.key});
   final bool isEmpty = false;
 

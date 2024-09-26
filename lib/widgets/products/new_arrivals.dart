@@ -18,7 +18,7 @@ class LatestArrivalProductWidget extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: GestureDetector(
         onTap: () async {
-          await Navigator.pushNamed(context, ProductDetailsScreen.routName);
+          await Navigator.pushNamed(context, ProductDetailsScreen.routeName);
         },
         child: SizedBox(
           width: size.width * 0.45,

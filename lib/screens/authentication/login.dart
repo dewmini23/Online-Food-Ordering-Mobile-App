@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
+import 'package:online_food_ordering_app/bottom_navigation_bar.dart';
 import 'package:online_food_ordering_app/consts/validator.dart';
+import 'package:online_food_ordering_app/screens/authentication/forgot_password.dart';
 import 'package:online_food_ordering_app/screens/authentication/register.dart';
 import 'package:online_food_ordering_app/widgets/app_name_text.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
@@ -9,6 +11,7 @@ import 'package:online_food_ordering_app/widgets/titles_text.dart';
 import '../../widgets/auth/google_btn.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const routeName = "/LoginScreen";
   const LoginScreen({super.key});
 
   @override
@@ -142,7 +145,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(
+                              ForgotPasswordScreen.routeName,
+                            );
+                          },
                           child: const SubtitleTextWidget(
                             label: "Forgot password?",
                             fontStyle: FontStyle.italic,
@@ -211,7 +218,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                   ),
                                   child: const Text("Guest?"),
-                                  onPressed: () async {},
+                                  onPressed: () async {
+                                    Navigator.of(context)
+                                        .pushNamed(RootScreen.routeName);
+                                  },
                                 ),
                               ),
                             ),
@@ -233,7 +243,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             onPressed: () {
                               Navigator.of(context)
-                                  .pushNamed(RegisterScreen.routName);
+                                  .pushNamed(RegisterScreen.routeName);
                             },
                           ),
                         ],
