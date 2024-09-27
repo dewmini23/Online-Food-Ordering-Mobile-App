@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:online_food_ordering_app/providers/cart_provider.dart';
+import 'package:online_food_ordering_app/providers/products_provider.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
+import 'package:provider/provider.dart';
 
 class CartBottomSheetWidget extends StatelessWidget {
   const CartBottomSheetWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final productsProvider = Provider.of<ProductsProvider>(context);
+    final cartProvider = Provider.of<CartProvider>(context);
     return Container(
       decoration: BoxDecoration(
           color: Theme.of(context).scaffoldBackgroundColor,
@@ -18,13 +23,16 @@ class CartBottomSheetWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Flexible(
+              Flexible(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TitlesTextWidget(label: "Total (6 products/9 items)"),
+                    TitlesTextWidget(
+                        label:
+                            "Total (${cartProvider.getCartitems.length} products/${cartProvider.getQty()} items)"),
                     SubtitleTextWidget(
-                      label: "LKR 1750/=",
+                      label:
+                          "${cartProvider.getTotal(productsProvider: productsProvider).toString()}\$",
                       color: Colors.blue,
                     ),
                   ],

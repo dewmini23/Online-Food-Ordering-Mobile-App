@@ -1,18 +1,21 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:online_food_ordering_app/consts/app_constants.dart';
+import 'package:online_food_ordering_app/providers/products_provider.dart';
 // import 'package:online_food_ordering_app/consts/app_colors.dart';
 import 'package:online_food_ordering_app/services/assets_manager.dart';
 import 'package:online_food_ordering_app/widgets/app_name_text.dart';
 import 'package:online_food_ordering_app/widgets/products/category_widget.dart';
 import 'package:online_food_ordering_app/widgets/products/new_arrivals.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final productsProvider = Provider.of<ProductsProvider>(context);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -71,7 +74,9 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
                   itemBuilder: (context, index) {
-                    return const LatestArrivalProductWidget();
+                    return ChangeNotifierProvider.value(
+                        value: productsProvider.getProducts[index],
+                        child: const LatestArrivalProductWidget());
                   },
                 ),
               ),

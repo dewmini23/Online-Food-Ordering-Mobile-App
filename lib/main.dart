@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:online_food_ordering_app/bottom_navigation_bar.dart';
 // import 'package:online_food_ordering_app/bottom_navigation_bar.dart';
 import 'package:online_food_ordering_app/consts/theme_data.dart';
+import 'package:online_food_ordering_app/providers/cart_provider.dart';
 import 'package:online_food_ordering_app/providers/products_provider.dart';
 import 'package:online_food_ordering_app/providers/theme_provider.dart';
+import 'package:online_food_ordering_app/providers/viewed_recently_provider.dart';
+import 'package:online_food_ordering_app/providers/wishlist_provider.dart';
 import 'package:online_food_ordering_app/screens/authentication/forgot_password.dart';
 import 'package:online_food_ordering_app/screens/authentication/login.dart';
 import 'package:online_food_ordering_app/screens/authentication/register.dart';
@@ -34,9 +37,22 @@ class MyApp extends StatelessWidget {
           // in here we have to add all providers
           return ProductsProvider();
         }),
+        ChangeNotifierProvider(create: (_) {
+          // in here we have to add all providers
+          return CartProvider();
+        }),
+        ChangeNotifierProvider(create: (_) {
+          // in here we have to add all providers
+          return WishlistProvider();
+        }),
+        ChangeNotifierProvider(create: (_) {
+          // in here we have to add all providers
+          return ViewedProdProvider();
+        }),
       ],
       child: Consumer<ThemeProvider>(builder: (context, themeProvider, child) {
         return MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Simply Yummy Restaurant',
           theme: Styles.themeData(
               isDarkTheme: themeProvider.getIsDarkTheme, context: context),

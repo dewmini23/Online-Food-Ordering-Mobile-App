@@ -1,9 +1,12 @@
 import 'package:fancy_shimmer_image/fancy_shimmer_image.dart';
 import 'package:flutter/material.dart';
+import 'package:online_food_ordering_app/providers/viewed_recently_provider.dart';
 import 'package:online_food_ordering_app/screens/inner_screen/product_details.dart';
 import 'package:online_food_ordering_app/widgets/subtitle_text.dart';
 import 'package:online_food_ordering_app/widgets/titles_text.dart';
 import 'package:provider/provider.dart';
+
+import '../../providers/cart_provider.dart';
 import '../../providers/products_provider.dart';
 import 'heart_btn.dart';
 
@@ -23,13 +26,17 @@ class _ProductWidgetState extends State<ProductWidget> {
     // final productModelProvider = Provider.of<ProductModel>(context);
     final productsProvider = Provider.of<ProductsProvider>(context);
     final getCurrProduct = productsProvider.findByProdId(widget.productId);
+    final cartProvider = Provider.of<CartProvider>(context);
     Size size = MediaQuery.of(context).size;
+    final viewedProdProvider = Provider.of<ViewedProdProvider>(context);
     return getCurrProduct == null
         ? const SizedBox.shrink()
         : Padding(
             padding: const EdgeInsets.all(0.0),
             child: GestureDetector(
               onTap: () async {
+                viewedProdProvider.addViewedProd(
+                    productId: getCurrProduct.productId);
                 await Navigator.pushNamed(
                   context,
                   ProductDetailsScreen.routeName,
@@ -61,9 +68,11 @@ class _ProductWidgetState extends State<ProductWidget> {
                             maxLines: 2,
                           ),
                         ),
-                        const Flexible(
+                        Flexible(
                           flex: 2,
-                          child: HeartButtonWidget(),
+                          child: HeartButtonWidget(
+                            productsId: getCurrProduct.productId,
+                          ),
                         ),
                       ],
                     ),
@@ -90,13 +99,24 @@ class _ProductWidgetState extends State<ProductWidget> {
                             color: Colors.lightBlue,
                             child: InkWell(
                               borderRadius: BorderRadius.circular(12.0),
-                              onTap: () {},
+                              onTap: () {
+                                if (cartProvider.isProdinCart(
+                                    productId: getCurrProduct.productId)) {
+                                  return;
+                                }
+                                cartProvider.addProductToCart(
+                                    productId: getCurrProduct.productId);
+                              },
                               splashColor: Colors.red,
-                              child: const Padding(
-                                padding: EdgeInsets.all(6.0),
+                              child: Padding(
+                                padding: const EdgeInsets.all(6.0),
                                 child: Icon(
-                                  Icons.add_shopping_cart_outlined,
+                                  cartProvider.isProdinCart(
+                                          productId: getCurrProduct.productId)
+                                      ? Icons.check
+                                      : Icons.add_shopping_cart_outlined,
                                   size: 20,
+                                  color: Colors.white,
                                 ),
                               ),
                             ),
